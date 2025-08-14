@@ -1,6 +1,6 @@
 # Solidity Fundamentals 🔗
 
-Welcome to my Solidity learning journey! This repository contains my progress through blockchain development fundamentals.
+Welcome to Solidity ! This repository contains my progress through blockchain development fundamentals.
 
 ## 📚 What's Inside
 
