@@ -5,12 +5,12 @@ contract MyTokenSol{
     
     string public name = "MyToken";
     string public symbol = "MKT";
-    uint256 public totalSuply = 100000000;
+    uint256 public totalSupply = 100000000;
 
     mapping (address => uint256) public balances;
 
     constructor (){
-        balances[msg.sender] = totalSuply;
+        balances[msg.sender] = totalSupply;
     }
     function transfer (address to, uint256 amount) public {
         require(balances[msg.sender] >= amount, "Insufficient balance");
