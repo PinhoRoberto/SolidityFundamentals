@@ -6,12 +6,15 @@ contract Petition{
 
     uint256 public nameCount;
 
+    mapping(uint256 => string) public status;  
+
     constructor(){
         nameCount = 0;
     }
 
     function registerName(string memory _name) public{
         if (nameCount<3){
+            status[nameCount] = "undefined";
         names[nameCount] = _name;
         nameCount++;
         }
@@ -26,6 +29,13 @@ contract Petition{
 
     function isPetitionFull()public view returns (bool){
         return nameCount >= 3;
+    }
+
+    function changeStatus(uint256 _id, string memory _status) public {
+        if(_id < nameCount){
+                status[_id] = _status;
+        }
+
     }
 
 
