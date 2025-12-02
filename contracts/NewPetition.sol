@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.20; 
 
-contract NewPetition{
+contract Petition{
     string[3] private names;
+    string [] private extraNames;
 
     uint256 public nameCount;
 
@@ -14,17 +15,21 @@ contract NewPetition{
 
     function registerName(string memory _name) public{
         if (nameCount<3){
-            status[nameCount] = "undefined";
         names[nameCount] = _name;
-        nameCount++;
-        }
+        }else{
+            extraNames.push(_name);
+            
+       }
+       status[nameCount] = "undefined";
+       nameCount++;
     }
 
     function getName( uint256 _id) public view returns (string memory){
         if (_id < 3){
         return names[_id];
+        }else{
+        return  extraNames[_id-3];
         }
-        return "Error: index out of bounds";
     }
 
     function isPetitionFull()public view returns (bool){
